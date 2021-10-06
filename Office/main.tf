@@ -48,6 +48,13 @@ resource "netbox_dcim_site" "Site" {
   region_id = var.Region.id
 }
 
+resource "netbox_ipam_vlan_group" "Group" {
+  provider = ipam.ipam
+
+  name = var.Name
+  slug = "${var.Region.slug}site1"
+}
+
 #
 # Spine VLAN
 #
