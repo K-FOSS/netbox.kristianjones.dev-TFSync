@@ -96,5 +96,6 @@ module "TMPOffice" {
 
   providers = {
     ipam.ipam = ipam
+    sites.sites = netboxregions
    }
 }

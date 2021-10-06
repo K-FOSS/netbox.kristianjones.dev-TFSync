@@ -21,17 +21,31 @@ terraform {
 
       configuration_aliases = [ ipam.ipam ]
     }
+
+    #
+    # Netbox IPAM
+    #
+    # Docs: https://registry.terraform.io/providers/tle06/netbox/latest/docs
+    #
+    sites = {
+      source = "tle06/netbox"
+      version = "0.1.0-alpha.7"
+
+      configuration_aliases = [ sites.sites ]
+    }
   }
 }
 
 #
 # Site
 #
-resource "netbox_ipam_vlan_group" "Site" {
-  provider = ipam.ipam
+resource "netbox_dcim_site" "Site" {
+  provider = sites.sites
 
   name = var.Name
   slug = "${var.Region.slug}site1"
+
+  region_id = var.Region.id
 }
 
 #
@@ -43,9 +57,8 @@ resource "netbox_ipam_vlan" "vlan_test" {
   vlan_id = 100
   name = "TestVlan"
 
-  site_id = netbox_ipam_vlan_group.Site.site_id
+  site_id = netbox_dcim_site.Site.id
   description = "VLAN created by terraform"
-  vlan_group_id = netbox_ipam_vlan_group.Site.id
 }
 
 #
