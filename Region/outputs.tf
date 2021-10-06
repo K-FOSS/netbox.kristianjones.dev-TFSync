@@ -1,3 +1,3 @@
 output "Region" {
-  value = netbox_dcim_region.Region
+  value = netboxregions_dcim_region.Region
 }
