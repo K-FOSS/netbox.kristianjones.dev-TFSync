@@ -81,6 +81,10 @@ module "Region" {
 
   Name = "TestRegion"
   Slug = "YWG"
+
+  providers = {
+    netboxregions.regions = netboxregions
+  }
 }
 
 module "TMPOffice" {
@@ -89,4 +93,8 @@ module "TMPOffice" {
   Name = "TestHome1"
 
   Region = module.Region.Region
+
+  providers = {
+    ipam.ipam = ipam
+   }
 }
