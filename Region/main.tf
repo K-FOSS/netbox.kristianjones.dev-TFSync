@@ -12,7 +12,7 @@ terraform {
   }
 }
 
-resource "netbox_dcim_region" "Region" {
+resource "netboxregions_dcim_region" "Region" {
   name = var.Name
 
   slug = var.Slug

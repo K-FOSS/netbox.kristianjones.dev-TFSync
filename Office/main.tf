@@ -25,7 +25,7 @@ terraform {
 #
 # Site
 #
-resource "netbox_ipam_vlan_group" "Site" {
+resource "ipam_ipam_vlan_group" "Site" {
   name = var.Name
   slug = "${var.Region.slug}site1"
 }
@@ -33,7 +33,7 @@ resource "netbox_ipam_vlan_group" "Site" {
 #
 # Spine VLAN
 #
-resource "netbox_ipam_vlan" "vlan_test" {
+resource "ipam_ipam_vlan" "vlan_test" {
   vlan_id = 100
   name = "TestVlan"
 
