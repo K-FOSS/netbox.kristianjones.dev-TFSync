@@ -15,7 +15,7 @@ terraform {
 }
 
 resource "netbox_dcim_region" "Region" {
-  provider = netboxregions.regions.regions
+  provider = netboxregions.regions
   
   name = var.Name
 
