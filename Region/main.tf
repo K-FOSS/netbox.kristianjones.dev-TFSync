@@ -9,13 +9,13 @@ terraform {
       source = "tle06/netbox"
       version = "0.1.0-alpha.7"
 
-      configuration_aliases = [ netbox.regions ]
+      configuration_aliases = [ netboxregions.regions ]
     }
   }
 }
 
 resource "netbox_dcim_region" "Region" {
-  provider = netbox.regions
+  provider = netboxregions.regions.regions
   
   name = var.Name
 

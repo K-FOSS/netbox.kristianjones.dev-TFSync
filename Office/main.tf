@@ -19,7 +19,7 @@ terraform {
       source = "smutel/netbox"
       version = "2.0.2"
 
-      configuration_aliases = [ netbox.ipam ]
+      configuration_aliases = [ ipam.ipam ]
     }
   }
 }
@@ -28,7 +28,7 @@ terraform {
 # Site
 #
 resource "netbox_ipam_vlan_group" "Site" {
-  provider = netbox.ipam
+  provider = ipam.ipam
 
   name = var.Name
   slug = "${var.Region.slug}site1"
@@ -38,7 +38,7 @@ resource "netbox_ipam_vlan_group" "Site" {
 # Spine VLAN
 #
 resource "netbox_ipam_vlan" "vlan_test" {
-  provider = netbox.ipam
+  provider = ipam.ipam
 
   vlan_id = 100
   name = "TestVlan"
